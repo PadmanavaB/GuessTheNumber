@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess the Number Game</title>
+    <style>
+      body {
+        text-align: center;
+        font-size: 1.5em;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="guess" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+    <p id="message"></p>
+    <br>
+    <br>
+    <h2>(⚈ ̫ ⚈)</h2>
+    <br>
+    <p>I totally did not make this game with ChatGPT</p>
+
+    <script>
+      // Generate a random number between 1 and 100
+      var secretNumber = Math.floor(Math.random() * 100) + 1;
+
+      // Keep track of the number of guesses
+      var numGuesses = 0;
+
+      function checkGuess() {
+        // Get the player's guess from the input field
+        var guess = parseInt(document.getElementById("guess").value);
+
+        // Increment the number of guesses
+        numGuesses++;
+
+        // Check if the guess is correct
+        if (guess === secretNumber) {
+          document.getElementById("message").innerHTML =
+            "Congratulations! You guessed the number in " +
+            numGuesses +
+            " guesses.";
+        } else if (guess < secretNumber) {
+          document.getElementById("message").innerHTML =
+            "Your guess is too low. Try again.";
+        } else {
+          document.getElementById("message").innerHTML =
+            "Your guess is too high. Try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
